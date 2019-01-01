@@ -1,0 +1,114 @@
+﻿<Window x:Class="ListaLekow.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ListaLekow"
+        mc:Ignorable="d"
+        Title="Lista Leków" Height="450" Width="800" Icon="Pill.ico" ResizeMode="NoResize">
+    <!--<Window.Resources>
+        <local: x:Key="versionManager"/>
+    </Window.Resources>-->
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="30" />
+        </Grid.RowDefinitions>
+
+        <DockPanel Grid.Row="0">
+            <Menu DockPanel.Dock="Top">
+                <MenuItem Header="_File">
+                    <MenuItem Header="_Close" Click="MenuItem_Click" />
+                </MenuItem>
+                <MenuItem Header="_Setting" Click="MenuItem_Click_1" />
+                <MenuItem Header="_About" />
+            </Menu>
+            
+            <ToolBarTray DockPanel.Dock="Top">
+                <ToolBar>
+                    
+                    <Button Click="Button_Click_1">
+                        <StackPanel>
+                            <Image Source="Images\pill_add.png" Stretch="None" />
+                            <TextBlock>Dodaj</TextBlock>
+                        </StackPanel>
+                    </Button>
+                    
+                    <Button Click="Button_Click_3">
+                        <StackPanel>
+                            <Image Source="Images\pill_go.png" />
+                            <TextBlock>Edytuj</TextBlock>
+                        </StackPanel>
+                    </Button>
+
+                    <Button Click="Button_Click_2">
+                        <StackPanel>
+                            <Image Source="Images\pill_delete.png" />
+                            <TextBlock>Usuń</TextBlock>
+                        </StackPanel>
+                    </Button>
+                    <Separator />
+                    <Button Name="Dane_osoboweBTN" Click="Dane_osoboweBTN_Click">
+                        <StackPanel>
+                            <Image Source="Images\report_user.png" />
+                            <TextBlock>Dane osobowe</TextBlock>
+                        </StackPanel>
+                    </Button>
+                    <Separator />
+                    <Button Click="Button_Click_4">
+                        <StackPanel>
+                            <Image Source="Images\page_white_acrobat.png" />
+                            <TextBlock>Dawkowanie</TextBlock>
+                        </StackPanel>
+                    </Button>
+                    <Button x:Name="ListaLekowBTN" Click="ListaLekowBTN_Click">
+                        <StackPanel>
+                            <Image Source="Images\page_white_acrobat.png" />
+                            <TextBlock>Lista leków</TextBlock>
+                        </StackPanel>
+                    </Button>
+                    <Separator />
+                    <Button Click="Button_Click">
+                        <StackPanel>
+                            <Image Source="Images\door_in.png" />
+                            <TextBlock>Wyjście</TextBlock>
+                        </StackPanel>
+                    </Button>
+                    
+                </ToolBar>
+                
+            </ToolBarTray>
+                
+            
+        </DockPanel>
+
+        
+        <DockPanel Grid.Row="1">
+            <DataGrid Name="dataGrid1" IsReadOnly="True" ItemsSource="{Binding LekiLista}" SelectionMode="Single">
+                <!--<DataGrid.Columns>
+                    <DataGridTextColumn Foreground="Black" Header="ID" Binding="{Binding ID, Mode=TwoWay}" IsReadOnly="false" />
+                    <DataGridTextColumn Foreground="Black" Header="NazwaLeku"  Binding="{Binding NazwaLeku, Mode=TwoWay}" IsReadOnly="false"/>
+                    <DataGridTextColumn Foreground="Black" Header="DawkowanieRano"  Binding="{Binding DawkowanieRano, Mode=TwoWay}" IsReadOnly="false"/>
+                    <DataGridTextColumn Foreground="Black" Header="DawkowaniePoludnie"  Binding="{Binding DawkowaniePoludnie, Mode=TwoWay}" IsReadOnly="false"/>
+                    <DataGridTextColumn Foreground="Black" Header="DawkowaniePopoludnie" Binding="{Binding DawkowaniePopoludnie, Mode=TwoWay}" IsReadOnly="false"/>
+                    <DataGridTextColumn Foreground="Black" Header="DawkowanieWieczor" Binding="{Binding DawkowanieWieczor, Mode=TwoWay}" IsReadOnly="false"/>
+                    <DataGridTextColumn Foreground="Black" Header="Ilosc" Binding="{Binding Ilosc, Mode=TwoWay}" IsReadOnly="false"/>
+                    <DataGridTextColumn Foreground="Black" Header="Wydruk" Binding="{Binding Wydruk, Mode=TwoWay}" IsReadOnly="True"/>
+                </DataGrid.Columns>-->
+
+                <!--<DataGrid.ItemsSource>
+                    <Binding Path="LekiLista" Mode="OneWay"  UpdateSourceTrigger="PropertyChanged">
+                    </Binding>
+                </DataGrid.ItemsSource>-->
+            </DataGrid>
+        </DockPanel>
+        
+        
+        <DockPanel Grid.Row="2">
+        
+        </DockPanel>
+
+    </Grid>
+</Window>

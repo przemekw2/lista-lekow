@@ -1,0 +1,207 @@
+﻿<Window x:Class="ListaLekow.LekWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ListaLekow"
+        xmlns:localValidation="clr-namespace:ListaLekow.Validation_Rules_Classes"
+        mc:Ignorable="d"
+        Title="Dodawanie Nowego Leku" Height="370" Width="350" ResizeMode="NoResize">
+
+    <Window.Resources>
+
+        <ControlTemplate x:Key="validationErrorTemplate">
+            <DockPanel>
+                <StackPanel Orientation="Horizontal" DockPanel.Dock="Top">
+                    <Grid Width="12" Height="12">
+                        <Ellipse Width="12" Height="12" Fill="Red" HorizontalAlignment="Center" VerticalAlignment="Center"></Ellipse>
+                        <TextBlock Foreground="White" FontWeight="Heavy" FontSize="8" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center"
+                       ToolTip="{Binding ElementName=ErrorAdorner, 
+                       Path=AdornedElement.(Validation.Errors)[0].ErrorContent}"
+
+                       >X</TextBlock>
+                    </Grid>
+                    <TextBlock Foreground="Red" FontWeight="Normal" Margin="2,0,0,0" 
+
+                   Text="{Binding ElementName=ErrorAdorner, 
+                   Path=AdornedElement.(Validation.Errors)[0].ErrorContent}"
+
+                   ></TextBlock>
+                </StackPanel>
+                <AdornedElementPlaceholder 
+
+        x:Name="ErrorAdorner" ></AdornedElementPlaceholder>
+            </DockPanel>
+        </ControlTemplate>
+
+    </Window.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="98" />
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="60" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Label Grid.Row="1" Grid.Column="0" Margin="15,0,0,0" >Nazwa Leku:</Label>
+        <TextBox 
+            Grid.Row="2" 
+            Grid.Column="0" 
+            Margin="15,0,0,0" 
+            x:Name="FileTB" 
+            VerticalAlignment="Center" 
+            HorizontalAlignment="Left" 
+            Width="250"
+            Validation.ErrorTemplate="{StaticResource validationErrorTemplate}">
+
+            <TextBox.Text>
+                <Binding Path="NazwaLeku" Mode="TwoWay" UpdateSourceTrigger="LostFocus">
+                    <Binding.ValidationRules>
+                        <localValidation:NameValidator></localValidation:NameValidator>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+
+        </TextBox>
+        <Label Grid.Row="4" Grid.Column="0" Margin="15,0,0,0" >Dawkowanie:</Label>
+        <DockPanel Grid.Row="5">
+            
+            <Grid>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                    <Label Grid.Row="0" Grid.Column="0" Margin="2,0,0,0" >Rano:</Label>
+                    <TextBox 
+                        Grid.Row="0" 
+                        Grid.Column="1" 
+                        Margin="15,0,0,0" 
+                        x:Name="RanoTB" 
+                        VerticalAlignment="Center" 
+                        HorizontalAlignment="Left" 
+                        Width="20">
+                        <TextBox.Text>
+                            <Binding Path="DawkowanieRano" Mode="TwoWay" UpdateSourceTrigger="LostFocus">
+                                <Binding.ValidationRules>
+                                    <localValidation:OpakowanieValidator></localValidation:OpakowanieValidator>
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </TextBox.Text>
+                    </TextBox>
+                    <Label Grid.Row="1" Grid.Column="0" Margin="2,0,0,0" >Południe:</Label>
+                    <TextBox 
+                        Grid.Row="1" 
+                        Grid.Column="1" 
+                        Margin="15,0,0,0" 
+                        x:Name="PoludnieTB" 
+                        VerticalAlignment="Center" 
+                        HorizontalAlignment="Left" 
+                        Width="20">
+                        <TextBox.Text>
+                            <Binding Path="DawkowaniePoludnie" Mode="TwoWay" UpdateSourceTrigger="LostFocus">
+                                <Binding.ValidationRules>
+                                    <localValidation:OpakowanieValidator></localValidation:OpakowanieValidator>
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </TextBox.Text>
+                </TextBox>
+                    <Label Grid.Row="2" Grid.Column="0" Margin="2,0,0,0" >Popołudnie:</Label>
+                    <TextBox 
+                        Grid.Row="2" 
+                        Grid.Column="1" 
+                        Margin="15,0,0,0" 
+                        x:Name="PopoludnieTB" 
+                        VerticalAlignment="Center" 
+                        HorizontalAlignment="Left" Width="20">
+                        <TextBox.Text>
+                            <Binding Path="DawkowaniePopoludnie" Mode="TwoWay" UpdateSourceTrigger="LostFocus">
+                                <Binding.ValidationRules>
+                                    <localValidation:OpakowanieValidator></localValidation:OpakowanieValidator>
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </TextBox.Text>
+                </TextBox>
+                    <Label Grid.Row="3" Grid.Column="0" Margin="2,0,0,0" >Wieczór:</Label>
+                    <TextBox 
+                        Grid.Row="3" 
+                        Grid.Column="1" 
+                        Margin="15,0,0,0" 
+                        x:Name="WieczorTB" 
+                        VerticalAlignment="Center" 
+                        HorizontalAlignment="Left" 
+                        Width="20">
+                        <TextBox.Text>
+                            <Binding Path="DawkowanieWieczor" Mode="TwoWay" UpdateSourceTrigger="LostFocus">
+                            <Binding.ValidationRules>
+                                <localValidation:OpakowanieValidator></localValidation:OpakowanieValidator>
+                            </Binding.ValidationRules>
+                        </Binding>
+                        </TextBox.Text>
+                </TextBox>
+
+            </Grid>
+        </DockPanel>
+        <DockPanel Grid.Row="7">
+            <Grid>
+                
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="30" />
+                </Grid.RowDefinitions>
+
+                <Label Grid.Row="0" Grid.Column="0" Margin="2,0,0,0" VerticalAlignment="Center" >Ilość opakowań:</Label>
+                <TextBox 
+					Grid.Row="0" 
+					Grid.Column="1" 
+					Margin="15,0,0,0" 
+					x:Name="IloscTB" 
+					VerticalAlignment="Center" 
+					HorizontalAlignment="Left" 
+					Width="15"
+					Validation.ErrorTemplate="{StaticResource validationErrorTemplate}">
+                    <TextBox.Text>
+                        <Binding Path="Ilosc" Mode="TwoWay" UpdateSourceTrigger="LostFocus">
+                            <Binding.ValidationRules>
+                                <localValidation:OpakowanieValidator></localValidation:OpakowanieValidator>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+                
+                <Label Grid.Row="1" Grid.Column="0" Margin="2,0,0,0" VerticalAlignment="Center" >Wydruk:</Label>
+                <CheckBox 
+                    x:Name="Wydruk"
+                    Grid.Row="1" 
+                    Grid.Column="1" 
+                    Margin="15,0,0,0" 
+                    VerticalAlignment="Center">
+                    <CheckBox.IsChecked>
+                        <Binding Path="Wydruk" Mode="TwoWay" UpdateSourceTrigger="LostFocus"></Binding>
+                    </CheckBox.IsChecked>
+                </CheckBox>
+            </Grid>
+            
+        </DockPanel>
+        <Button Grid.Row="8" Grid.Column="0" Margin="10,0,0,0" Height="25" Width="80" x:Name="SearchBTN" Content="Dodaj" HorizontalAlignment="Left" Click="SearchBTN_Click"/>
+        <Button Grid.Row="8" Grid.Column="0" Margin="100,0,0,0" Height="25" Width="80" x:Name="CancelBTN" Content="Anuluj" HorizontalAlignment="Left" Click="CancelBTN_Click"/>
+    </Grid>
+</Window>
