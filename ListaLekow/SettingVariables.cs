@@ -9,6 +9,7 @@ namespace ListaLekow
     [Serializable]
     public class SettingVariables
     {
+        /*jakis tam komentarz */
         public string DataFileLocation { get; set; }
         public bool UseDefaultDataLocation { get; set; }
 
