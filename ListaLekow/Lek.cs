@@ -15,7 +15,6 @@ namespace ListaLekow
         public double DawkowaniePoludnie { get; set; }
         public double DawkowaniePopoludnie { get; set; }
         public double DawkowanieWieczor { get; set; }
-        //public Dawkowanie Dawkowanie { get; set; }
         public byte Ilosc { get; set; }
         public bool Wydruk { get; set; }
 

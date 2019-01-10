@@ -69,6 +69,7 @@
       <DependentUpon>LekEdycjaWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="SettingVariables.cs" />
+    <Compile Include="Validation Rules Classes\DawkowanieValidator.cs" />
     <Compile Include="Validation Rules Classes\NameValidator.cs" />
     <Compile Include="Validation Rules Classes\OpakowanieValidator.cs" />
     <Page Include="Forms\DaneOsoboweWindow.xaml">

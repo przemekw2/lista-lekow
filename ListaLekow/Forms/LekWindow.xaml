@@ -94,11 +94,11 @@
                         x:Name="RanoTB" 
                         VerticalAlignment="Center" 
                         HorizontalAlignment="Left" 
-                        Width="20">
+                        Width="30">
                         <TextBox.Text>
-                            <Binding Path="DawkowanieRano" Mode="TwoWay" UpdateSourceTrigger="LostFocus">
+                        <Binding Path="Lek.DawkowanieRano" Mode="TwoWay" UpdateSourceTrigger="LostFocus" StringFormat="0{0.0}" Delay="250">
                                 <Binding.ValidationRules>
-                                    <localValidation:OpakowanieValidator></localValidation:OpakowanieValidator>
+                                <localValidation:DawkowanieValidator></localValidation:DawkowanieValidator>
                                 </Binding.ValidationRules>
                             </Binding>
                         </TextBox.Text>
@@ -111,11 +111,11 @@
                         x:Name="PoludnieTB" 
                         VerticalAlignment="Center" 
                         HorizontalAlignment="Left" 
-                        Width="20">
+                        Width="30">
                         <TextBox.Text>
                             <Binding Path="DawkowaniePoludnie" Mode="TwoWay" UpdateSourceTrigger="LostFocus">
                                 <Binding.ValidationRules>
-                                    <localValidation:OpakowanieValidator></localValidation:OpakowanieValidator>
+                                <localValidation:DawkowanieValidator></localValidation:DawkowanieValidator>
                                 </Binding.ValidationRules>
                             </Binding>
                         </TextBox.Text>
@@ -127,11 +127,11 @@
                         Margin="15,0,0,0" 
                         x:Name="PopoludnieTB" 
                         VerticalAlignment="Center" 
-                        HorizontalAlignment="Left" Width="20">
+                        HorizontalAlignment="Left" Width="30">
                         <TextBox.Text>
                             <Binding Path="DawkowaniePopoludnie" Mode="TwoWay" UpdateSourceTrigger="LostFocus">
                                 <Binding.ValidationRules>
-                                    <localValidation:OpakowanieValidator></localValidation:OpakowanieValidator>
+                                    <localValidation:DawkowanieValidator></localValidation:DawkowanieValidator>
                                 </Binding.ValidationRules>
                             </Binding>
                         </TextBox.Text>
@@ -144,11 +144,11 @@
                         x:Name="WieczorTB" 
                         VerticalAlignment="Center" 
                         HorizontalAlignment="Left" 
-                        Width="20">
+                        Width="30">
                         <TextBox.Text>
                             <Binding Path="DawkowanieWieczor" Mode="TwoWay" UpdateSourceTrigger="LostFocus">
                             <Binding.ValidationRules>
-                                <localValidation:OpakowanieValidator></localValidation:OpakowanieValidator>
+                                <localValidation:DawkowanieValidator></localValidation:DawkowanieValidator>
                             </Binding.ValidationRules>
                         </Binding>
                         </TextBox.Text>
