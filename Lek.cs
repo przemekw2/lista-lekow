@@ -9,12 +9,13 @@ namespace ListaLekow
     [Serializable]
     public class Lek
     {
+		/*master*/
         public string ID { get; set; }
         public string NazwaLeku { get; set; }
-        public double DawkowanieRano { get; set; }
-        public double DawkowaniePoludnie { get; set; }
-        public double DawkowaniePopoludnie { get; set; }
-        public double DawkowanieWieczor { get; set; }
+        public double DawkowanieRano { get; set; } = 0.0;
+        public double DawkowaniePoludnie { get; set; } = 0.0;
+        public double DawkowaniePopoludnie { get; set; } = 0.0;
+        public double DawkowanieWieczor { get; set; } = 0.0;
         //public Dawkowanie Dawkowanie { get; set; }
         public byte Ilosc { get; set; }
         public bool Wydruk { get; set; }

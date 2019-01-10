@@ -18,6 +18,7 @@ using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
+using System.ComponentModel;
 
 namespace ListaLekow
 {
@@ -65,6 +66,7 @@ namespace ListaLekow
         {
 
             InitializeComponent();
+            if (DesignerProperties.GetIsInDesignMode(new DependencyObject())) return;
             this.Closed += new EventHandler(MainWindow_Closed);
             SetGlobals();
             ReadSettingsDATFile();
@@ -219,7 +221,7 @@ namespace ListaLekow
         {
             DataVariables dataVariables = new DataVariables(LekiLista, DaneOsobowe.Imie, DaneOsobowe.Nazwisko, DaneOsobowe.Pesel, DaneOsobowe.Adres);
             BinaryFormatter formatter = new BinaryFormatter();
-            using (Stream output = File.Create(Globals.DataFileLocation + Globals.DataFileName))
+            using (Stream output = File.Create(Globals.DataFileLocation + Path.DirectorySeparatorChar + Globals.DataFileName))
             {
                 formatter.Serialize(output, dataVariables);
             }
