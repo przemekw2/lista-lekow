@@ -1,0 +1,29 @@
+[33mcommit 55d4417588b01bc7b0004a55d86573d7801b40ed[m[33m ([m[1;36mHEAD -> [m[1;32mbugFixes[m[33m)[m
+Author: Przemyslaw <przemekw2@gmail.com>
+Date:   Thu Jan 10 13:34:30 2019 +0000
+
+    usuniecie okna setting, pliku setting etc
+
+[33mcommit 17c61c848a4ec0d88717bf53d7bcfffee5578c6d[m
+Author: Przemyslaw <przemekw2@gmail.com>
+Date:   Thu Jan 10 11:55:50 2019 +0000
+
+    nic nie zostalo poprawione :(
+
+[33mcommit da3991c93be3f1f6c8ee4ff0bff1c3118bf68b11[m[33m ([m[1;33mtag: v1.1[m[33m, [m[1;31morigin/master[m[33m, [m[1;32mmaster[m[33m)[m
+Author: Przemyslaw Wlodarczyk <przemekw2@gmail.com>
+Date:   Wed Jan 2 22:04:41 2019 +0100
+
+    test commit from VS
+
+[33mcommit 77b6bb2353cddc41ec6d14178d624873ae5c6db0[m[33m ([m[1;33mtag: v0.9[m[33m)[m
+Author: Przemyslaw Wlodarczyk <przemekw2@gmail.com>
+Date:   Tue Jan 1 21:22:57 2019 +0100
+
+    my first commit :)
+
+[33mcommit 4bce7699a3c6d5ce887642674c5b595a1fc6053d[m[33m ([m[1;33mtag: v1[m[33m)[m
+Author: Przemek <Przemek@PC>
+Date:   Tue Jan 1 21:08:20 2019 +0100
+
+    Add .gitignore and .gitattributes.

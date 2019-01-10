@@ -22,7 +22,6 @@
                 <MenuItem Header="_File">
                     <MenuItem Header="_Close" Click="MenuItem_Click" />
                 </MenuItem>
-                <MenuItem Header="_Setting" Click="MenuItem_Click_1" />
                 <MenuItem Header="_About" />
             </Menu>
             
