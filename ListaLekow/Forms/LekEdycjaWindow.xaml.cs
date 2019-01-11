@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Collections.ObjectModel;
 
 namespace ListaLekow
 {
@@ -21,22 +22,22 @@ namespace ListaLekow
     {
         MainWindow mwInstance = (MainWindow)Application.Current.MainWindow;
         public Lek TempLek { get; set; }
-        private List<Lek> lekiLista;
+        private ObservableCollection<Lek> lekiLista;
 
-        public List<Lek> LekiLista
+        public ObservableCollection<Lek> LekiLista
         {
             get
             {
                 if (this.lekiLista == null)
                 {
-                    this.lekiLista = new List<Lek>();
+                    this.lekiLista = new ObservableCollection<Lek>();
                 }
                 return this.lekiLista;
             }
             set { this.lekiLista = value; }
         }
 
-        public LekEdycjaWindow(Lek tempLek, List<Lek> lekiLista)
+        public LekEdycjaWindow(Lek tempLek, ObservableCollection<Lek> lekiLista)
         {
             InitializeComponent();
             TempLek = tempLek;

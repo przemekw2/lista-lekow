@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Collections.ObjectModel;
 
 namespace ListaLekow
 {
@@ -24,15 +25,15 @@ namespace ListaLekow
         //string tempID = generateID("abc");
         Lek tempLek = new Lek("", "", 0, false);
 
-        private List<Lek> lekiLista;
+        private ObservableCollection<Lek> lekiLista;
 
-        public List<Lek> LekiLista
+        public ObservableCollection<Lek> LekiLista
         {
             get
             {
                 if (this.lekiLista == null)
                 {
-                    this.lekiLista = new List<Lek>();
+                    this.lekiLista = new ObservableCollection<Lek>();
                 }
                 return this.lekiLista;
             }

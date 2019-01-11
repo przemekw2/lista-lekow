@@ -19,6 +19,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
 using System.ComponentModel;
+using System.Collections.ObjectModel;
 
 namespace ListaLekow
 {
@@ -30,7 +31,8 @@ namespace ListaLekow
 
         private Lek tempLek;
         private DaneOsobowe daneOsobowe;
-        private List<Lek> lekiLista;
+        //private List<Lek> lekiLista;
+        private ObservableCollection<Lek> lekiLista;
 
         public Lek TempLek { get; set; }
 
@@ -47,13 +49,13 @@ namespace ListaLekow
             set { this.daneOsobowe = value; }
         }
 
-        public List<Lek> LekiLista
+        public ObservableCollection<Lek> LekiLista
         {
             get
             {
                 if (this.lekiLista == null)
                 {
-                    this.lekiLista = new List<Lek>();
+                    this.lekiLista = new ObservableCollection<Lek>();
                 }
                 return this.lekiLista;
             }
@@ -126,10 +128,16 @@ namespace ListaLekow
                 if (result == MessageBoxResult.Yes)
                 {
                     //kasowanie leku z listy
-                    LekiLista.RemoveAll(x => x.NazwaLeku == selectedItem.NazwaLeku.ToString());
-                    //datagrid refresh
-                    this.dataGrid1.ItemsSource = null;
-                    this.dataGrid1.ItemsSource = LekiLista;
+                    for (int i = 0; i <= LekiLista.Count; i++) 
+                    {
+                        if (LekiLista[i].NazwaLeku.ToString() == selectedItem.NazwaLeku.ToString()) 
+                        {
+                            LekiLista.Remove(LekiLista[i]);
+                            UpdateDataGrid();
+                            break;
+                        }
+                    }
+                        
                 }
 
             }
@@ -234,7 +242,7 @@ namespace ListaLekow
             OpenPDF(filePath);
         }
 
-        static void GenerujDawkowaniePDF(string filePath, List<Lek> lekiLista)
+        static void GenerujDawkowaniePDF(string filePath, ObservableCollection<Lek> lekiLista)
         {
             using (System.IO.MemoryStream memoryStream = new System.IO.MemoryStream())
             {
@@ -284,7 +292,7 @@ namespace ListaLekow
             }
         }
 
-        static void GenerujListeLekowPDF(string filePath, DaneOsobowe daneOsobowe, List<Lek> lekiLista)
+        static void GenerujListeLekowPDF(string filePath, DaneOsobowe daneOsobowe, ObservableCollection<Lek> lekiLista)
         {
             using (System.IO.MemoryStream memoryStream = new System.IO.MemoryStream())
             {

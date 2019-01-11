@@ -85,22 +85,16 @@
 
         
         <DockPanel Grid.Row="1">
-            <DataGrid Name="dataGrid1" IsReadOnly="True" ItemsSource="{Binding LekiLista}" SelectionMode="Single">
-                <!--<DataGrid.Columns>
-                    <DataGridTextColumn Foreground="Black" Header="ID" Binding="{Binding ID, Mode=TwoWay}" IsReadOnly="false" />
-                    <DataGridTextColumn Foreground="Black" Header="NazwaLeku"  Binding="{Binding NazwaLeku, Mode=TwoWay}" IsReadOnly="false"/>
-                    <DataGridTextColumn Foreground="Black" Header="DawkowanieRano"  Binding="{Binding DawkowanieRano, Mode=TwoWay}" IsReadOnly="false"/>
-                    <DataGridTextColumn Foreground="Black" Header="DawkowaniePoludnie"  Binding="{Binding DawkowaniePoludnie, Mode=TwoWay}" IsReadOnly="false"/>
-                    <DataGridTextColumn Foreground="Black" Header="DawkowaniePopoludnie" Binding="{Binding DawkowaniePopoludnie, Mode=TwoWay}" IsReadOnly="false"/>
-                    <DataGridTextColumn Foreground="Black" Header="DawkowanieWieczor" Binding="{Binding DawkowanieWieczor, Mode=TwoWay}" IsReadOnly="false"/>
-                    <DataGridTextColumn Foreground="Black" Header="Ilosc" Binding="{Binding Ilosc, Mode=TwoWay}" IsReadOnly="false"/>
-                    <DataGridTextColumn Foreground="Black" Header="Wydruk" Binding="{Binding Wydruk, Mode=TwoWay}" IsReadOnly="True"/>
-                </DataGrid.Columns>-->
-
-                <!--<DataGrid.ItemsSource>
-                    <Binding Path="LekiLista" Mode="OneWay"  UpdateSourceTrigger="PropertyChanged">
-                    </Binding>
-                </DataGrid.ItemsSource>-->
+            <DataGrid Name="dataGrid1" IsReadOnly="True" ItemsSource="{Binding LekiLista}" SelectionMode="Single" AutoGenerateColumns="False">
+                <DataGrid.Columns >
+                    <DataGridTextColumn Width="250" Header="Nazwa Leku" Binding="{Binding NazwaLeku}"></DataGridTextColumn>
+                    <DataGridTextColumn Width="70" Header="Rano" Binding="{Binding DawkowanieRano}"></DataGridTextColumn>
+                    <DataGridTextColumn Width="70" Header="Południe" Binding="{Binding DawkowaniePoludnie}"></DataGridTextColumn>
+                    <DataGridTextColumn Width="70" Header="Popołudnie" Binding="{Binding DawkowaniePopoludnie }"></DataGridTextColumn>
+                    <DataGridTextColumn Width="70" Header="Wieczór" Binding="{Binding DawkowanieWieczor}"></DataGridTextColumn>
+                    <DataGridTextColumn Width="50" Header="Ilość" Binding="{Binding Ilosc}"></DataGridTextColumn>
+                    <DataGridTextColumn Width="50" Header="Wydruk" Binding="{Binding Wydruk}"></DataGridTextColumn>
+                </DataGrid.Columns>
             </DataGrid>
         </DockPanel>
         

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Collections.ObjectModel;
 
 namespace ListaLekow
 {
@@ -10,15 +11,15 @@ namespace ListaLekow
     public class DataVariables
     {
 
-        private List<Lek> lekiLista;
+        private ObservableCollection<Lek> lekiLista;
 
-        public List<Lek> LekiLista
+        public ObservableCollection<Lek> LekiLista
         {
             get
             {
                 if (this.lekiLista == null)
                 {
-                    this.lekiLista = new List<Lek>();
+                    this.lekiLista = new ObservableCollection<Lek>();
                 }
                 return this.lekiLista;
             }
@@ -30,7 +31,7 @@ namespace ListaLekow
         public string Pesel { get; set; }
         public string Adres { get; set; }
 
-        public DataVariables(List<Lek> lekiLista, string imie, string nazwisko, string pesel, string adres)
+        public DataVariables(ObservableCollection<Lek> lekiLista, string imie, string nazwisko, string pesel, string adres)
         {
             LekiLista = lekiLista;
             Imie = imie;
