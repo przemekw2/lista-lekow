@@ -60,6 +60,9 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="DaneOsobowe.cs" />
+    <Compile Include="Forms\AboutWindow.xaml.cs">
+      <DependentUpon>AboutWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Forms\DaneOsoboweWindow.xaml.cs">
       <DependentUpon>DaneOsoboweWindow.xaml</DependentUpon>
     </Compile>
@@ -72,6 +75,10 @@
     <Compile Include="Validation Rules Classes\DawkowanieValidator.cs" />
     <Compile Include="Validation Rules Classes\NameValidator.cs" />
     <Compile Include="Validation Rules Classes\OpakowanieValidator.cs" />
+    <Page Include="Forms\AboutWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Forms\DaneOsoboweWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

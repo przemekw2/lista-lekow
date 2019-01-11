@@ -20,6 +20,7 @@ using iTextSharp.text;
 using iTextSharp.text.pdf;
 using System.ComponentModel;
 using System.Collections.ObjectModel;
+using ListaLekow.Forms;
 
 namespace ListaLekow
 {
@@ -368,6 +369,13 @@ namespace ListaLekow
                 catch { Process.Start(filePath); }
 
             }
+        }
+
+        private void AboutMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            AboutWindow aboutWindow = new AboutWindow();
+            aboutWindow.ShowDialog();
+
         }
     }
 }
