@@ -22,7 +22,6 @@ namespace ListaLekow
     {
 
         MainWindow mwInstance = (MainWindow)Application.Current.MainWindow;
-        //string tempID = generateID("abc");
         Lek tempLek = new Lek("", "", 0, false);
 
         private ObservableCollection<Lek> lekiLista;
@@ -54,17 +53,38 @@ namespace ListaLekow
 
         private void SearchBTN_Click(object sender, RoutedEventArgs e)
         {
-            tempLek.ID = generateID(tempLek.NazwaLeku);
-            this.lekiLista.Add(tempLek);
-            MessageBoxButton buttons = MessageBoxButton.OK;
-            MessageBoxResult result = MessageBox.Show("Nowy lek : " + tempLek.NazwaLeku + " został dodany.", "Nowy Lek", buttons);
-            mwInstance.LekiLista = this.LekiLista;
+            if (!CheckForDuplicate(tempLek.NazwaLeku))
+            {
+                tempLek.ID = generateID(tempLek.NazwaLeku);
+                this.lekiLista.Add(tempLek);
+                MessageBoxButton buttons = MessageBoxButton.OK;
+                MessageBoxResult result = MessageBox.Show("Nowy lek : " + tempLek.NazwaLeku + " został dodany.", "Nowy Lek", buttons);
+                mwInstance.LekiLista = this.LekiLista;
+            }
+            else
+            {
+                MessageBoxButton buttons = MessageBoxButton.OK;
+                MessageBoxResult result = MessageBox.Show("Lek : " + tempLek.NazwaLeku + " już znajduje się na liście.", "Nowy Lek", buttons);
+            }
             this.Close();
         }
 
-        public string generateID(string nazwa_leku)
+        private string generateID(string nazwa_leku)
         {
             return Guid.NewGuid().ToString("N");
+        }
+
+        private bool CheckForDuplicate(string nazwa_leku)
+        {
+            try
+            {
+                Lek lek = this.LekiLista.Single(x => x.NazwaLeku == nazwa_leku);
+                return true;
+            }
+            catch (System.InvalidOperationException ex)
+            {
+                return false;
+            }
         }
     }
 }

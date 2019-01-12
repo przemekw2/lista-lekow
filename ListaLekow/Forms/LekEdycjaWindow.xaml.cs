@@ -71,5 +71,18 @@ namespace ListaLekow
             mwInstance.LekiLista = this.LekiLista;
             this.Close();
         }
+
+        private bool CheckForDuplicate(string nazwa_leku)
+        {
+            try
+            {
+                Lek lek = this.LekiLista.Single(x => x.NazwaLeku == nazwa_leku);
+                return true;
+            }
+            catch (System.InvalidOperationException ex)
+            {
+                return false;
+            }
+        }
     }
 }
