@@ -29,8 +29,6 @@ namespace ListaLekow
     /// </summary>
     public partial class MainWindow : Window
     {
-
-        private Lek tempLek;
         private DaneOsobowe daneOsobowe;
         //private List<Lek> lekiLista;
         private ObservableCollection<Lek> lekiLista;

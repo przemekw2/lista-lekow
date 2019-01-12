@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ListaLekow"
         mc:Ignorable="d"
-        Title="Lista Leków" Height="450" Width="800" Icon="Pill.ico" ResizeMode="NoResize">
+        Title="Lista Leków" Height="450" Width="671" Icon="Pill.ico" ResizeMode="NoResize">
     <!--<Window.Resources>
         <local: x:Key="versionManager"/>
     </Window.Resources>-->
@@ -19,10 +19,10 @@
 
         <DockPanel Grid.Row="0">
             <Menu DockPanel.Dock="Top">
-                <MenuItem Header="_File">
+                <MenuItem Header="_Plik">
                     <MenuItem Header="_Close" Click="MenuItem_Click" />
                 </MenuItem>
-                <MenuItem x:Name="AboutMenuItem" Header="_About" Click="AboutMenuItem_Click" />
+                <MenuItem x:Name="AboutMenuItem" Header="_O Programie" Click="AboutMenuItem_Click" />
             </Menu>
             
             <ToolBarTray DockPanel.Dock="Top">

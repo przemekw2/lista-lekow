@@ -59,6 +59,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AboutDataProviders\AboutAssemblyDataProvider.cs" />
+    <Compile Include="AboutDataProviders\IAboutDataProvider.cs" />
     <Compile Include="DaneOsobowe.cs" />
     <Compile Include="Forms\AboutWindow.xaml.cs">
       <DependentUpon>AboutWindow.xaml</DependentUpon>
@@ -154,6 +156,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\report_user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="pill-icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

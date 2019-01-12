@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ListaLekow"
         mc:Ignorable="d"
-        Title="Dane Osobowe" Height="250" Width="350" ResizeMode="NoResize">
+        Title="Dane Osobowe" Height="250" Width="350" ResizeMode="NoResize" Icon="/ListaLekow;component/Pill.ico">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="80*" />

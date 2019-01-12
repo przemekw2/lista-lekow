@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:ListaLekow"
         xmlns:localValidation="clr-namespace:ListaLekow.Validation_Rules_Classes"
         mc:Ignorable="d"
-        Title="Dodawanie Nowego Leku" Height="370" Width="350" ResizeMode="NoResize">
+        Title="Dodawanie Nowego Leku" Height="370" Width="350" ResizeMode="NoResize" Icon="/ListaLekow;component/Pill.ico">
 
     <Window.Resources>
 

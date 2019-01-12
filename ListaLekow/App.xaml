@@ -2,8 +2,26 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:ListaLekow"
+             xmlns:localAboutAssemblyDataProvider="clr-namespace:ListaLekow.AboutDataProviders"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <localAboutAssemblyDataProvider:AboutAssemblyDataProvider x:Key="aboutDataProvider" />
+        <XmlDataProvider x:Key="aboutProvider" XPath="ApplicationInfo" IsAsynchronous="False" IsInitialLoadEnabled="True">
+            <x:XData>
+                <ApplicationInfo xmlns="">
+                    <Title>Lista Leków</Title>
+                    <Product>Lista Leków</Product>
+                    <Copyright>Copyright © 2019 - Przemysław Włodarczyk</Copyright>
+                    <Description>Aplikacja służąca do zarządzania listą leków,
+Umożliwia dodawanie, edycje, usuwanie leku,
+Definiowanie dawkowania leku,
+Definiowanie danych osobowych pacjenta,
+Generowanie plików pdf zawierających listę leków i dawkowanie.
+                    </Description>
+                    <Version>1.0.0.0</Version>
+                    <!--<Link Uri="http://blogs.msdn.com/pedrosilva">License Terms[xml]</Link>-->
+                </ApplicationInfo>
+            </x:XData>
+        </XmlDataProvider>
     </Application.Resources>
 </Application>
