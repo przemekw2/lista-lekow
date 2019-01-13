@@ -22,6 +22,7 @@ namespace ListaLekow
     {
         MainWindow mwInstance = (MainWindow)Application.Current.MainWindow;
         public Lek TempLek { get; set; }
+        private Lek lekClone;
         private ObservableCollection<Lek> lekiLista;
 
         public ObservableCollection<Lek> LekiLista
@@ -40,9 +41,10 @@ namespace ListaLekow
         public LekEdycjaWindow(Lek tempLek, ObservableCollection<Lek> lekiLista)
         {
             InitializeComponent();
-            TempLek = tempLek;
+            //TempLek = tempLek;
+            lekClone = (Lek)tempLek.Clone();
             LekiLista = lekiLista;
-            this.DataContext = TempLek;
+            this.DataContext = lekClone;
         }
 
         private void CancelBTN_Click(object sender, RoutedEventArgs e)
@@ -53,30 +55,38 @@ namespace ListaLekow
 
         private void UptdateBTN_Click(object sender, RoutedEventArgs e)
         {
-            //aktualizacja leku w liscie
-            
-            Lek lekItem = LekiLista.FirstOrDefault(d => d.ID == TempLek.ID);
-            if (lekItem != null)
+            //aktualizacja leku
+
+            if (!CheckForDuplicate(lekClone.NazwaLeku, lekClone.ID))
             {
-                lekItem.NazwaLeku = TempLek.NazwaLeku;
-                lekItem.DawkowanieRano = TempLek.DawkowanieRano;
-                lekItem.DawkowaniePoludnie = TempLek.DawkowaniePoludnie;
-                lekItem.DawkowaniePopoludnie = TempLek.DawkowaniePopoludnie;
-                lekItem.DawkowanieWieczor = TempLek.DawkowanieWieczor;
-                lekItem.Ilosc = TempLek.Ilosc;
-                lekItem.Wydruk = TempLek.Wydruk;
+
+                for (int i = 0; i <= LekiLista.Count; i++)
+                {
+                    if (LekiLista[i].ID == lekClone.ID)
+                    {
+                        LekiLista[i] = (Lek)lekClone.Clone();
+                        mwInstance.dataGrid1.ItemsSource = LekiLista;
+                        break;
+                    }
+                }
+
+                MessageBoxButton buttons = MessageBoxButton.OK;
+                MessageBoxResult result = MessageBox.Show("Lek został zaktualizowany.", "Aktualizacja Leku", buttons);
+                this.Close();
             }
-            MessageBoxButton buttons = MessageBoxButton.OK;
-            MessageBoxResult result = MessageBox.Show("Lek " + TempLek.NazwaLeku + " został zaktualizowany.", "Aktualizacja Leku", buttons);
-            mwInstance.LekiLista = this.LekiLista;
-            this.Close();
+            else
+            {
+                MessageBoxButton buttons = MessageBoxButton.OK;
+                MessageBoxResult result = MessageBox.Show("Lek o nazwie " + lekClone.NazwaLeku + " już istnieje na liście.", "Aktualizacja Leku", buttons);
+            }
+            
         }
 
-        private bool CheckForDuplicate(string nazwa_leku)
+        private bool CheckForDuplicate(string nazwa_leku, string guid)
         {
             try
             {
-                Lek lek = this.LekiLista.Single(x => x.NazwaLeku == nazwa_leku);
+                Lek lek = this.LekiLista.Single(x => x.NazwaLeku == nazwa_leku && x.ID != guid);
                 return true;
             }
             catch (System.InvalidOperationException ex)

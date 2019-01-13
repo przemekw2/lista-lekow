@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace ListaLekow
 {
     [Serializable]
-    public class Lek
+    public class Lek : ICloneable
     {
         public string ID { get; set; }
         public string NazwaLeku { get; set; }
@@ -29,6 +29,11 @@ namespace ListaLekow
             this.DawkowanieWieczor = dawkowaniewieczor;
             this.Ilosc = ilosc;
             this.Wydruk = wydruk;
+        }
+
+        public object Clone()
+        {
+            return this.MemberwiseClone();
         }
 
     }
